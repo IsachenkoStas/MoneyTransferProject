@@ -26,9 +26,8 @@ public class TransferService {
 
     public void parseTransfers(List<File> fileList, Map<String, Integer> accounts) {
         ParseDirectory.getFiles(new File("src/main/java/com/isachenko/transferProject/files/differentFiles"), fileList);
-        try {
-            for (File file : fileList) {
-                BufferedReader br = new BufferedReader(new FileReader(file));
+        for (File file : fileList)
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 String res = null;
                 while ((line = br.readLine()) != null) {
@@ -43,7 +42,7 @@ public class TransferService {
                             res = " Unsuccessfully, possibly invalid amount";
                         }
                     } else {
-                        res = "file is not suitable, possibly incorrect data entered";
+                        res = " File is not suitable, possibly incorrect data entered";
                     }
                 }
                 try (FileWriter reportFile =
@@ -53,11 +52,11 @@ public class TransferService {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
+
 
     public void rewriteAccInfo(Map<String, Integer> accounts) {
         try (FileWriter fileWriter = new FileWriter("src/main/java/com/isachenko/transferProject/files/AccsInfo")) {
