@@ -40,7 +40,7 @@ public class TransferService {
                             accounts.replace(line.substring(12, 23), cashIn);
                             res = " Successful transactions";
                         } else {
-                            res = " Unsuccessfully, probably invalid amount";
+                            res = " Unsuccessfully, possibly invalid amount";
                         }
                     } else {
                         res = "file is not suitable, possibly incorrect data entered";
