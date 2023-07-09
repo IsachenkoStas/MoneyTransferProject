@@ -40,7 +40,7 @@ public class TransferService {
                             accounts.replace(line.substring(12, 23), cashIn);
                             res = " Successful transactions";
                         } else {
-                            res = " Unsuccessfully, invalid amount";
+                            res = " Unsuccessfully, probably invalid amount";
                         }
                     } else {
                         res = "file is not suitable, possibly incorrect data entered";
@@ -70,8 +70,7 @@ public class TransferService {
     }
 
     public void readReportFile() {
-        try {
-            FileReader readReport = new FileReader("src/main/java/com/isachenko/transferProject/files/reportFile");
+        try (FileReader readReport = new FileReader("src/main/java/com/isachenko/transferProject/files/reportFile")) {
             int i;
             while ((i = readReport.read()) != -1) {
                 System.out.print((char) i);
