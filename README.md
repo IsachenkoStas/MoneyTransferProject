@@ -19,7 +19,7 @@ When you enter "2" - already generated file-report is displayed in the console, 
 
 When adding your own files/directories for parsing, make sure that the files you need are **format.txt**, and also correspond to the regex prescribed in the program code.  
 
-`line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+")`
+`line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+\\.?\\d*")`
 
 Example text file:
 
