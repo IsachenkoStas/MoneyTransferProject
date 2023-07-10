@@ -3,7 +3,7 @@ package com.isachenko.transferProject.service;
 import java.io.File;
 import java.util.List;
 
-public class ParseDirectory {
+public class DirectoryParser {
 
     public static void getFiles(File rootFile, List<File> fileList) {
         if (rootFile.isDirectory()) {

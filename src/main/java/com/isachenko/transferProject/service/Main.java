@@ -18,7 +18,7 @@ public class Main {
         if (choice == 1) {
             transferService.parseTransfers(fileList, accounts);
             transferService.rewriteAccInfo(accounts);
-            ArchiveHandling.moveToArchive(fileList);
+            ArchiveHandler.moveToArchive(fileList);
         } else if (choice == 2) {
             transferService.readReportFile();
         } else {

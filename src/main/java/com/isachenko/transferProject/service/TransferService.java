@@ -12,9 +12,7 @@ import java.util.Map;
 public class TransferService {
 
     public void initialize(Map<String, Integer> accounts) {
-        try {
-            BufferedReader br =
-                    new BufferedReader(new FileReader("src/main/java/com/isachenko/transferProject/files/AccsInfo"));
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/isachenko/transferProject/files/AccsInfo"))) {
             String s;
             while ((s = br.readLine()) != null) {
                 accounts.put(s.substring(0, 11), Integer.parseInt(s.substring(13)));
@@ -25,7 +23,7 @@ public class TransferService {
     }
 
     public void parseTransfers(List<File> fileList, Map<String, Integer> accounts) {
-        ParseDirectory.getFiles(new File("src/main/java/com/isachenko/transferProject/files/differentFiles"), fileList);
+        DirectoryParser.getFiles(new File("src/main/java/com/isachenko/transferProject/files/differentFiles"), fileList);
         for (File file : fileList)
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;

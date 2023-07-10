@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ArchiveHandling {
+public class ArchiveHandler {
 
     public static void moveToArchive(List<File> fileList) {
         String str_target = "src/main/java/com/isachenko/transferProject/files/archive/parsed";
