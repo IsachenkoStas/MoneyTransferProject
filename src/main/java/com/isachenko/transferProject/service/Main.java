@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         TransferService transferService = new TransferService();
-        Map<String, Integer> accounts = new HashMap<>();
+        Map<String, Double> accounts = new HashMap<>();
         List<File> fileList = new ArrayList<>();
         transferService.initialize(accounts);
         System.out.print("Enter the number - ");

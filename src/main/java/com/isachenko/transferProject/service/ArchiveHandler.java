@@ -10,7 +10,7 @@ import java.util.List;
 public class ArchiveHandler {
 
     public static void moveToArchive(List<File> fileList) {
-        String target = "src/main/java/com/isachenko/transferProject/files/archive/parsed";
+        String target = "src/main/java/com/isachenko/transferProject/files/archive/";
         Path moveFile = null;
         try {
             for (File file : fileList) {

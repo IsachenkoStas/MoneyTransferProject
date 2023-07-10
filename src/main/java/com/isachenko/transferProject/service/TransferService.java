@@ -11,28 +11,28 @@ import java.util.Map;
 
 public class TransferService {
 
-    public void initialize(Map<String, Integer> accounts) {
+    public void initialize(Map<String, Double> accounts) {
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/isachenko/transferProject/files/AccsInfo"))) {
             String s;
             while ((s = br.readLine()) != null) {
-                accounts.put(s.substring(0, 11), Integer.parseInt(s.substring(13)));
+                accounts.put(s.substring(0, 11), Double.parseDouble(s.substring(13)));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void parseTransfers(List<File> fileList, Map<String, Integer> accounts) {
+    public void parseTransfers(List<File> fileList, Map<String, Double> accounts) {
         DirectoryParser.getFiles(new File("src/main/java/com/isachenko/transferProject/files/differentFiles"), fileList);
         for (File file : fileList)
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 String res = null;
                 while ((line = br.readLine()) != null) {
-                    if (line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+")) {
-                        int cashOut = accounts.get(line.substring(0, 11)) - Integer.parseInt(line.substring(25));
-                        int cashIn = accounts.get(line.substring(12, 23)) + Integer.parseInt(line.substring(25));
-                        if (accounts.get(line.substring(0, 11)) > Integer.parseInt(line.substring(25))) {
+                    if (line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+\\.?\\d*")) {
+                        double cashOut = accounts.get(line.substring(0, 11)) - Double.parseDouble(line.substring(25));
+                        double cashIn = accounts.get(line.substring(12, 23)) + Double.parseDouble(line.substring(25));
+                        if (accounts.get(line.substring(0, 11)) > Double.parseDouble(line.substring(25))) {
                             accounts.replace(line.substring(0, 11), cashOut);
                             accounts.replace(line.substring(12, 23), cashIn);
                             res = " Successful transactions";
@@ -56,7 +56,7 @@ public class TransferService {
     }
 
 
-    public void rewriteAccInfo(Map<String, Integer> accounts) {
+    public void rewriteAccInfo(Map<String, Double> accounts) {
         try (FileWriter fileWriter = new FileWriter("src/main/java/com/isachenko/transferProject/files/AccsInfo")) {
             for (Map.Entry e : accounts.entrySet()) {
                 fileWriter.write(e.getKey() + ": " + e.getValue() + '\n');
