@@ -10,11 +10,11 @@ import java.util.List;
 public class ArchiveHandler {
 
     public static void moveToArchive(List<File> fileList) {
-        String str_target = "src/main/java/com/isachenko/transferProject/files/archive/parsed";
+        String target = "src/main/java/com/isachenko/transferProject/files/archive/parsed";
         Path moveFile = null;
         try {
             for (File file : fileList) {
-                moveFile = Files.move(Paths.get(file.getPath()), Paths.get(str_target + file.getName()));
+                moveFile = Files.move(Paths.get(file.getPath()), Paths.get(target + file.getName()));
             }
         } catch (IOException e) {
             System.out.println("Exception while moving file: " + e.getMessage());
