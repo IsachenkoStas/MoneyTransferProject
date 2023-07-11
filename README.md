@@ -4,7 +4,8 @@
 
 ## Class diagram of the project MoneyTransfer
 
-<img width="500" alt="Снимок экрана 2023-07-10 в 11 34 40" src="https://github.com/IsachenkoStas/MoneyTransferProject/assets/132468711/942a14da-7fdf-4876-b586-ba119388fa6d">
+<img width="961" alt="Снимок экрана 2023-07-11 в 12 30 25" src="https://github.com/IsachenkoStas/MoneyTransferProject/assets/132468711/25247d48-e76c-4bbb-a1c7-54a1b5eae1c9">
+
 
 
 ## Run
@@ -13,13 +14,14 @@ When starting, the program waits for input from the console.
 When you enter "1" - the program parses all files from the provided directory and selects the appropriate under the condition  
 (i.e. .txt files).  
 As a result of files parsing, the program forms a report file and updates the information in the file with account numbers, also transfers the parsed files to the archive folder.  
-When you enter "2" - already generated file-report is displayed in the console, where date, time, file name and success of performed operations are indicated. 
+When you enter "2" - already generated file-report is displayed in the console, where date, time, file name and success of performed operations are indicated.  
+You also have the option to call a method `readReportFile` that will display information from the report file exactly by the dates you enter. This method is overloaded.
 
 ### Additional Information
 
 When adding your own files/directories for parsing, make sure that the files you need are **format.txt**, and also correspond to the regex prescribed in the program code.  
 
-`line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+")`
+`line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+\\.?\\d*")`
 
 Example text file:
 
