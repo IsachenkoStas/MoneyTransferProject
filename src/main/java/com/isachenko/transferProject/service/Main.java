@@ -21,6 +21,7 @@ public class Main {
             ArchiveHandler.moveToArchive(fileList);
         } else if (choice == 2) {
             transferService.readReportFile();
+            transferService.readReportFile("2023-07-08", "2023-07-10");
         } else {
             System.out.println("Please, enter either 1 or 2");
         }

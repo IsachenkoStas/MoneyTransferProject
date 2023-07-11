@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +72,25 @@ public class TransferService {
             int i;
             while ((i = readReport.read()) != -1) {
                 System.out.print((char) i);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readReportFile(String fromDate, String dateBy) {
+        LocalDate dateFrom = LocalDate.parse(fromDate);
+        LocalDate byDate = LocalDate.parse(dateBy);
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/isachenko/transferProject/files/reportFile"))) {
+            String line;
+            String date;
+            while ((line = br.readLine()) != null) {
+                date = line.substring(6, 16);
+                if (dateFrom.isBefore(LocalDate.parse(date)) || dateFrom.isEqual(LocalDate.parse(date))) {
+                    if (byDate.isAfter(LocalDate.parse(date)) || byDate.isEqual(LocalDate.parse(date))) {
+                        System.out.println(line);
+                    }
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
