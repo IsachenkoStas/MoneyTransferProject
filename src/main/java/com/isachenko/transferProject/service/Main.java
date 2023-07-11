@@ -6,9 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.zip.DataFormatException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DataFormatException {
         TransferService transferService = new TransferService();
         Map<String, Double> accounts = new HashMap<>();
         List<File> fileList = new ArrayList<>();
