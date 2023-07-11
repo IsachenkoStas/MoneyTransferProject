@@ -4,7 +4,7 @@
 
 ## Class diagram of the project MoneyTransfer
 
-<img width="961" alt="Снимок экрана 2023-07-11 в 12 30 25" src="https://github.com/IsachenkoStas/MoneyTransferProject/assets/132468711/25247d48-e76c-4bbb-a1c7-54a1b5eae1c9">
+<img width="711" alt="Снимок экрана 2023-07-11 в 13 41 55" src="https://github.com/IsachenkoStas/MoneyTransferProject/assets/132468711/08ed60e7-7393-412d-830f-fc4e22a465e8">
 
 
 
