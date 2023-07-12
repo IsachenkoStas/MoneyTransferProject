@@ -15,7 +15,7 @@ When you enter "1" - the program parses all files from the provided directory an
 (i.e. .txt files).  
 As a result of files parsing, the program forms a report file and updates the information in the file with account numbers, also transfers the parsed files to the archive folder.  
 When you enter "2" - already generated file-report is displayed in the console, where date, time, file name and success of performed operations are indicated.  
-You also have the option to call a method `readReportFile` that will display information from the report file exactly by the dates you enter. This method is overloaded.
+When you enter "3" - function `readReportFile` will display information from the report file exactly by the dates you enter. This function is overloaded.
 
 ### Additional Information
 
