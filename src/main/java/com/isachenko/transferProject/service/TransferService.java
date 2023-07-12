@@ -29,7 +29,7 @@ public class TransferService {
                 String line;
                 String res = null;
                 while ((line = br.readLine()) != null) {
-                    if (line.matches("\\d{5}\\-\\d{5}\\|\\d{5}\\-\\d{5}\\: \\d+\\.?\\d*")) {
+                    if (line.matches("\\d{5}-\\d{5}\\|\\d{5}-\\d{5}: \\d+\\.?\\d*")) {
                         double cashOut = accounts.get(line.substring(0, 11)) - Double.parseDouble(line.substring(25));
                         double cashIn = accounts.get(line.substring(12, 23)) + Double.parseDouble(line.substring(25));
                         if (accounts.get(line.substring(0, 11)) > Double.parseDouble(line.substring(25))) {

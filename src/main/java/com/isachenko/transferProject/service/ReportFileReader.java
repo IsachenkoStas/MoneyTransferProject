@@ -23,8 +23,8 @@ public class ReportFileReader {
      * format of String date should be yy-MM-dd
      */
     public void readReportFile(String fromDate, String dateBy) throws DataFormatException {
-        if (fromDate.matches("\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])*")
-                && dateBy.matches("\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])*")) {
+        if (fromDate.matches("\\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])*")
+                && dateBy.matches("\\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])*")) {
             LocalDate dateFrom = LocalDate.parse(fromDate);
             LocalDate byDate = LocalDate.parse(dateBy);
             try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/isachenko/transferProject/files/reportFile"))) {

@@ -23,6 +23,7 @@ public class Main {
             ArchiveHandler.moveToArchive(fileList);
         } else if (choice == 2) {
             reportFileReader.readReportFile();
+        } else if (choice == 3) {
             reportFileReader.readReportFile("2023-07-08", "2023-07-10");
         } else {
             System.out.println("Please, enter either 1 or 2");
